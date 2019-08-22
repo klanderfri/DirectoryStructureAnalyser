@@ -42,9 +42,8 @@ namespace DirectoryStructureAnalyser
             {
                 SizeInBytes += child.SizeInBytes;
             }
-
-            var files = Info.GetFiles();
-            foreach (var file in files)
+            
+            foreach (var file in Info.GetFiles())
             {
                 SizeInBytes += file.Length;
             }
