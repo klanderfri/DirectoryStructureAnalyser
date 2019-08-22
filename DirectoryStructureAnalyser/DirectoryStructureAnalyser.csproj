@@ -52,6 +52,11 @@
     <Compile Include="AnalyserForm.Designer.cs">
       <DependentUpon>AnalyserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnalyserTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByteSizeConverter.cs" />
+    <Compile Include="Folder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnalyserForm.resx">

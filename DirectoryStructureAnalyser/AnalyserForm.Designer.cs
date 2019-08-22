@@ -31,7 +31,7 @@
             this.tbxRootDirectoryPath = new System.Windows.Forms.TextBox();
             this.btnSelectRootDirectory = new System.Windows.Forms.Button();
             this.btnAnalyseStructure = new System.Windows.Forms.Button();
-            this.twDirectoryTree = new System.Windows.Forms.TreeView();
+            this.twDirectoryTree = new AnalyserTreeView();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.SuspendLayout();
             // 
@@ -91,7 +91,7 @@
         private System.Windows.Forms.TextBox tbxRootDirectoryPath;
         private System.Windows.Forms.Button btnSelectRootDirectory;
         private System.Windows.Forms.Button btnAnalyseStructure;
-        private System.Windows.Forms.TreeView twDirectoryTree;
+        private AnalyserTreeView twDirectoryTree;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }
