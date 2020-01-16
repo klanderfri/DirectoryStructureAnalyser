@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace DirectoryStructureAnalyser
@@ -9,14 +10,18 @@ namespace DirectoryStructureAnalyser
     public class Folder
     {
         public DirectoryInfo Info { get; private set; }
+
         public long SizeInBytes { get; private set; }
+
         public double SizeInMB
         {
             get { return ByteSizeConverter.MbFromByte(SizeInBytes); }
         }
-
+        
         public List<Folder> SubFolders { get; private set; }
 
+        public List<string> UnavailableFolders { get; private set; } = new List<string>();
+        
         public Folder(string folderpath)
         {
             Info = new DirectoryInfo(folderpath);
@@ -30,7 +35,14 @@ namespace DirectoryStructureAnalyser
 
             foreach (var child in Info.GetDirectories())
             {
-                SubFolders.Add(new Folder(child.FullName));
+                try
+                {
+                    SubFolders.Add(new Folder(child.FullName));
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    UnavailableFolders.Add(child.FullName);
+                }
             }
         }
 
@@ -47,6 +59,20 @@ namespace DirectoryStructureAnalyser
             {
                 SizeInBytes += file.Length;
             }
+        }
+
+        public List<string> GetAllUnavailableFoldersInTree()
+        {
+            var unavailableFolders = new List<string>();
+
+            unavailableFolders.AddRange(UnavailableFolders);
+
+            foreach (var folder in SubFolders)
+            {
+                unavailableFolders.AddRange(folder.GetAllUnavailableFoldersInTree());
+            }
+
+            return unavailableFolders;
         }
     }
 }
