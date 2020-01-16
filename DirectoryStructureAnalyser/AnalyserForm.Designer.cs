@@ -31,7 +31,7 @@
             this.tbxRootDirectoryPath = new System.Windows.Forms.TextBox();
             this.btnSelectRootDirectory = new System.Windows.Forms.Button();
             this.btnAnalyseStructure = new System.Windows.Forms.Button();
-            this.twDirectoryTree = new AnalyserTreeView();
+            this.twDirectoryTree = new DirectoryStructureAnalyser.AnalyserTreeView();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.SuspendLayout();
             // 
@@ -72,6 +72,7 @@
             // 
             // AnalyserForm
             // 
+            this.AcceptButton = this.btnAnalyseStructure;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 873);
