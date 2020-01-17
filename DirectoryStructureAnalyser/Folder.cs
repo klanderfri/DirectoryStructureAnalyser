@@ -25,6 +25,10 @@ namespace DirectoryStructureAnalyser
         public Folder(string folderpath)
         {
             Info = new DirectoryInfo(folderpath);
+        }
+
+        public void AnalyseTree()
+        {
             fillSubfolders();
             calculateSize();
         }

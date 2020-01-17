@@ -29,6 +29,7 @@ namespace DirectoryStructureAnalyser
             {
                 twDirectoryTree.Nodes.Clear();
                 var root = new Folder(tbxRootDirectoryPath.Text);
+                root.AnalyseTree();
                 twDirectoryTree.AddFileFolderStructure(root);
                 twDirectoryTree.Nodes[0].Expand();
             }
