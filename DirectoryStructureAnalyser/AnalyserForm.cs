@@ -14,6 +14,8 @@ namespace DirectoryStructureAnalyser
 
         private void btnSelectRootDirectory_Click(object sender, EventArgs e)
         {
+            //Select root folder.
+
             using (var directorySelecter = new FolderBrowserDialog())
             {
                 if (directorySelecter.ShowDialog() == DialogResult.OK)
@@ -25,6 +27,8 @@ namespace DirectoryStructureAnalyser
 
         private void btnAnalyseStructure_Click(object sender, EventArgs e)
         {
+            //Analyse tree.
+
             if (!String.IsNullOrWhiteSpace(tbxRootDirectoryPath.Text))
             {
                 twDirectoryTree.Nodes.Clear();
@@ -37,6 +41,8 @@ namespace DirectoryStructureAnalyser
 
         private void twDirectoryTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            //Open node file/folder.
+
             var directory = e.Node.Tag as Folder;
             var file = e.Node.Tag as FileInfo;
             if (directory != null)
