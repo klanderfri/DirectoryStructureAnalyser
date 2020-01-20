@@ -43,7 +43,7 @@ namespace DirectoryStructureAnalyser
                 {
                     SubFolders.Add(new Folder(child.FullName));
                 }
-                catch (UnauthorizedAccessException ex)
+                catch (UnauthorizedAccessException)
                 {
                     UnavailableFolders.Add(child.FullName);
                 }
