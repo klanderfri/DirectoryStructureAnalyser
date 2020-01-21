@@ -18,25 +18,20 @@ namespace DirectoryStructureAnalyser
             get { return ByteSizeConverter.MbFromByte(SizeInBytes); }
         }
         
-        public List<Folder> SubFolders { get; private set; }
+        public List<Folder> SubFolders { get; private set; } = new List<Folder>();
 
         public List<string> UnavailableFolders { get; private set; } = new List<string>();
         
         public Folder(string folderpath)
         {
             Info = new DirectoryInfo(folderpath);
-        }
 
-        public void AnalyseTree()
-        {
             fillSubfolders();
             calculateSize();
         }
 
         private void fillSubfolders()
         {
-            SubFolders = new List<Folder>();
-
             foreach (var child in Info.GetDirectories())
             {
                 try
