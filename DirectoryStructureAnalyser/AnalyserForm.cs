@@ -10,6 +10,8 @@ namespace DirectoryStructureAnalyser
         public AnalyserForm()
         {
             InitializeComponent();
+
+            tbxRootDirectoryPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         }
 
         private void btnSelectRootDirectory_Click(object sender, EventArgs e)
