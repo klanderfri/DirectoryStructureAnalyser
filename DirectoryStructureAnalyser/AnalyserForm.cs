@@ -26,7 +26,7 @@ namespace DirectoryStructureAnalyser
                 }
             }
         }
-
+        
         private void btnAnalyseStructure_Click(object sender, EventArgs e)
         {
             //Analyse tree.
@@ -34,10 +34,27 @@ namespace DirectoryStructureAnalyser
             if (!String.IsNullOrWhiteSpace(tbxRootDirectoryPath.Text))
             {
                 twDirectoryTree.Nodes.Clear();
-                var root = new Folder(tbxRootDirectoryPath.Text);
-                twDirectoryTree.AddFileFolderStructure(root);
-                twDirectoryTree.Nodes[0].Expand();
+
+                using (var waiting = new WaitForm(addFolderStructureToTreeView))
+                {
+                    waiting.ShowDialog();
+                }
             }
+        }
+
+        private void addFolderStructureToTreeView()
+        {
+            var root = new Folder(tbxRootDirectoryPath.Text);
+            
+            if (twDirectoryTree.InvokeRequired)
+            {
+                twDirectoryTree.BeginInvoke((MethodInvoker)delegate
+                {
+                    twDirectoryTree.AddFileFolderStructure(root);
+                    twDirectoryTree.Nodes[0].Expand();
+                });
+            }
+            
         }
 
         private void twDirectoryTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)

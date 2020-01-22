@@ -11,7 +11,7 @@ namespace DirectoryStructureAnalyser
             addDirectoryToTree(root, Nodes);
         }
 
-        private static void addDirectoryToTree(Folder directory, TreeNodeCollection parentNode)
+        private void addDirectoryToTree(Folder directory, TreeNodeCollection parentNode)
         {
             var descriptionFormat = "{0} - {1} MB";
             var description = String.Format(descriptionFormat, directory.Info.Name, directory.SizeInMB);
