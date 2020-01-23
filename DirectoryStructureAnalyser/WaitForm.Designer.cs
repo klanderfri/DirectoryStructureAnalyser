@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblProcessing = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pgbProcessing = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // lblProcessing
@@ -43,11 +43,11 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(67, 78);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(244, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 1;
+            this.pgbProcessing.Location = new System.Drawing.Point(67, 78);
+            this.pgbProcessing.Name = "progressBar1";
+            this.pgbProcessing.Size = new System.Drawing.Size(244, 23);
+            this.pgbProcessing.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pgbProcessing.TabIndex = 1;
             // 
             // WaitForm
             // 
@@ -56,7 +56,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(384, 166);
             this.ControlBox = false;
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.pgbProcessing);
             this.Controls.Add(this.lblProcessing);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WaitForm";
@@ -70,6 +70,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblProcessing;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar pgbProcessing;
     }
 }
