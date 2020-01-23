@@ -44,6 +44,8 @@ namespace DirectoryStructureAnalyser
 
         private void addFolderStructureToTreeView()
         {
+            //Performs the operations needed to add the folder structer to the tree view.
+
             var root = new Folder(tbxRootDirectoryPath.Text);
             
             if (twDirectoryTree.InvokeRequired)

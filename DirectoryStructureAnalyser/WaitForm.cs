@@ -13,8 +13,15 @@ namespace DirectoryStructureAnalyser
     /// </remarks>
     public partial class WaitForm : Form
     {
+        /// <summary>
+        /// The action performed while the wait form is running.
+        /// </summary>
         public Action Worker { get; private set; }
 
+        /// <summary>
+        /// Creates a form showing a waiting dialog.
+        /// </summary>
+        /// <param name="worker">The action to perform while the waiting form is showing.</param>
         public WaitForm(Action worker)
         {
             InitializeComponent();
