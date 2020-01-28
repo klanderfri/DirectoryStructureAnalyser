@@ -56,7 +56,6 @@ namespace DirectoryStructureAnalyser
                     twDirectoryTree.Nodes[0].Expand();
                 });
             }
-            
         }
 
         private void twDirectoryTree_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
