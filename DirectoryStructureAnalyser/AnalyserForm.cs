@@ -7,31 +7,24 @@ namespace DirectoryStructureAnalyser
 {
     public partial class AnalyserForm : Form
     {
+        /// <summary>
+        /// Holds the settings for the folder structure analyse.
+        /// </summary>
+        private AnalyseSettings Settings { get; set; }
+
         public AnalyserForm()
         {
             InitializeComponent();
 
-            tbxRootDirectoryPath.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        }
-
-        private void btnSelectRootDirectory_Click(object sender, EventArgs e)
-        {
-            //Select root folder.
-
-            using (var directorySelecter = new FolderBrowserDialog())
-            {
-                if (directorySelecter.ShowDialog() == DialogResult.OK)
-                {
-                    tbxRootDirectoryPath.Text = directorySelecter.SelectedPath;
-                }
-            }
+            Settings = new AnalyseSettings();
+            prgAnalyseSettings.SelectedObject = Settings;
         }
         
         private void btnAnalyseStructure_Click(object sender, EventArgs e)
         {
             //Analyse tree.
 
-            if (!String.IsNullOrWhiteSpace(tbxRootDirectoryPath.Text))
+            if (!String.IsNullOrWhiteSpace(Settings.RootFolderPath))
             {
                 twDirectoryTree.Nodes.Clear();
 
@@ -45,14 +38,12 @@ namespace DirectoryStructureAnalyser
         private void addFolderStructureToTreeView()
         {
             //Performs the operations needed to add the folder structer to the tree view.
-
-            var root = new Folder(tbxRootDirectoryPath.Text);
             
             if (twDirectoryTree.InvokeRequired)
             {
                 twDirectoryTree.BeginInvoke((MethodInvoker)delegate
                 {
-                    twDirectoryTree.AddFileFolderStructure(root);
+                    twDirectoryTree.AddFileFolderStructure(Settings);
                     twDirectoryTree.Nodes[0].Expand();
                 });
             }

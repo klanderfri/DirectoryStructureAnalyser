@@ -28,35 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbxRootDirectoryPath = new System.Windows.Forms.TextBox();
-            this.btnSelectRootDirectory = new System.Windows.Forms.Button();
             this.btnAnalyseStructure = new System.Windows.Forms.Button();
             this.twDirectoryTree = new DirectoryStructureAnalyser.AnalyserTreeView();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+            this.prgAnalyseSettings = new System.Windows.Forms.PropertyGrid();
             this.SuspendLayout();
-            // 
-            // tbxRootDirectoryPath
-            // 
-            this.tbxRootDirectoryPath.Location = new System.Drawing.Point(12, 12);
-            this.tbxRootDirectoryPath.Name = "tbxRootDirectoryPath";
-            this.tbxRootDirectoryPath.Size = new System.Drawing.Size(465, 20);
-            this.tbxRootDirectoryPath.TabIndex = 0;
-            // 
-            // btnSelectRootDirectory
-            // 
-            this.btnSelectRootDirectory.Location = new System.Drawing.Point(483, 10);
-            this.btnSelectRootDirectory.Name = "btnSelectRootDirectory";
-            this.btnSelectRootDirectory.Size = new System.Drawing.Size(129, 23);
-            this.btnSelectRootDirectory.TabIndex = 1;
-            this.btnSelectRootDirectory.Text = "Select Root Directory";
-            this.btnSelectRootDirectory.UseVisualStyleBackColor = true;
-            this.btnSelectRootDirectory.Click += new System.EventHandler(this.btnSelectRootDirectory_Click);
             // 
             // btnAnalyseStructure
             // 
-            this.btnAnalyseStructure.Location = new System.Drawing.Point(618, 10);
+            this.btnAnalyseStructure.Location = new System.Drawing.Point(146, 829);
             this.btnAnalyseStructure.Name = "btnAnalyseStructure";
-            this.btnAnalyseStructure.Size = new System.Drawing.Size(126, 23);
+            this.btnAnalyseStructure.Size = new System.Drawing.Size(140, 49);
             this.btnAnalyseStructure.TabIndex = 2;
             this.btnAnalyseStructure.Text = "Analyse Structure";
             this.btnAnalyseStructure.UseVisualStyleBackColor = true;
@@ -64,36 +46,39 @@
             // 
             // twDirectoryTree
             // 
-            this.twDirectoryTree.Location = new System.Drawing.Point(12, 54);
+            this.twDirectoryTree.Location = new System.Drawing.Point(475, 12);
             this.twDirectoryTree.Name = "twDirectoryTree";
-            this.twDirectoryTree.Size = new System.Drawing.Size(732, 807);
+            this.twDirectoryTree.Size = new System.Drawing.Size(639, 908);
             this.twDirectoryTree.TabIndex = 3;
             this.twDirectoryTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.twDirectoryTree_NodeMouseDoubleClick);
+            // 
+            // prgAnalyseSettings
+            // 
+            this.prgAnalyseSettings.Location = new System.Drawing.Point(12, 12);
+            this.prgAnalyseSettings.Name = "prgAnalyseSettings";
+            this.prgAnalyseSettings.Size = new System.Drawing.Size(427, 764);
+            this.prgAnalyseSettings.TabIndex = 4;
             // 
             // AnalyserForm
             // 
             this.AcceptButton = this.btnAnalyseStructure;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 873);
+            this.ClientSize = new System.Drawing.Size(1126, 932);
+            this.Controls.Add(this.prgAnalyseSettings);
             this.Controls.Add(this.twDirectoryTree);
             this.Controls.Add(this.btnAnalyseStructure);
-            this.Controls.Add(this.btnSelectRootDirectory);
-            this.Controls.Add(this.tbxRootDirectoryPath);
             this.Name = "AnalyserForm";
             this.Text = "Directory Structure Analyser";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbxRootDirectoryPath;
-        private System.Windows.Forms.Button btnSelectRootDirectory;
         private System.Windows.Forms.Button btnAnalyseStructure;
         private AnalyserTreeView twDirectoryTree;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
+        private System.Windows.Forms.PropertyGrid prgAnalyseSettings;
     }
 }
 
