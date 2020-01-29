@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Design;
 using System.Windows.Forms.Design;
 
@@ -17,6 +18,7 @@ namespace DirectoryStructureAnalyser
         {
             RootFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             BigFolderMbyteSize = 100;
+            BigFolderColour = Color.Red;
         }
 
         [Category("Analyse")]
@@ -35,5 +37,10 @@ namespace DirectoryStructureAnalyser
         [Category("Analyse")]
         [Description("The size in MB when a folder is to be considered big.")]
         public int BigFolderMbyteSize { get; set; }
+
+        [Category("Analyse")]
+        [Description("The colour indicating the folder is big.")]
+        [Editor(typeof(ColorEditor), typeof(UITypeEditor))]
+        public Color BigFolderColour { get; set; }
     }
 }
